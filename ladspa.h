@@ -19,16 +19,7 @@
    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
    USA. */
 
-#ifndef LADSPA_INCLUDED
-#define LADSPA_INCLUDED
 
-#define LADSPA_VERSION "1.1"
-#define LADSPA_VERSION_MAJOR 1
-#define LADSPA_VERSION_MINOR 1
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 /*****************************************************************************/
 
@@ -131,9 +122,6 @@ typedef int LADSPA_Properties;
    A and B. */
 #define LADSPA_PROPERTY_HARD_RT_CAPABLE 0x4
 
-#define LADSPA_IS_REALTIME(x)        ((x) & LADSPA_PROPERTY_REALTIME)
-#define LADSPA_IS_INPLACE_BROKEN(x)  ((x) & LADSPA_PROPERTY_INPLACE_BROKEN)
-#define LADSPA_IS_HARD_RT_CAPABLE(x) ((x) & LADSPA_PROPERTY_HARD_RT_CAPABLE)
 
 /*****************************************************************************/
 
@@ -164,11 +152,6 @@ typedef int LADSPA_PortDescriptor;
 /* Property LADSPA_PORT_AUDIO indicates that the port is a audio
    port. */
 #define LADSPA_PORT_AUDIO   0x8
-
-#define LADSPA_IS_PORT_INPUT(x)   ((x) & LADSPA_PORT_INPUT)
-#define LADSPA_IS_PORT_OUTPUT(x)  ((x) & LADSPA_PORT_OUTPUT)
-#define LADSPA_IS_PORT_CONTROL(x) ((x) & LADSPA_PORT_CONTROL)
-#define LADSPA_IS_PORT_AUDIO(x)   ((x) & LADSPA_PORT_AUDIO)
 
 /*****************************************************************************/
 
@@ -307,32 +290,6 @@ typedef int LADSPA_PortRangeHintDescriptor;
    tuning convention, in which case it may be within a few Hz. */
 #define LADSPA_HINT_DEFAULT_440     0x2C0
 
-#define LADSPA_IS_HINT_BOUNDED_BELOW(x)   ((x) & LADSPA_HINT_BOUNDED_BELOW)
-#define LADSPA_IS_HINT_BOUNDED_ABOVE(x)   ((x) & LADSPA_HINT_BOUNDED_ABOVE)
-#define LADSPA_IS_HINT_TOGGLED(x)         ((x) & LADSPA_HINT_TOGGLED)
-#define LADSPA_IS_HINT_SAMPLE_RATE(x)     ((x) & LADSPA_HINT_SAMPLE_RATE)
-#define LADSPA_IS_HINT_LOGARITHMIC(x)     ((x) & LADSPA_HINT_LOGARITHMIC)
-#define LADSPA_IS_HINT_INTEGER(x)         ((x) & LADSPA_HINT_INTEGER)
-
-#define LADSPA_IS_HINT_HAS_DEFAULT(x)     ((x) & LADSPA_HINT_DEFAULT_MASK)
-#define LADSPA_IS_HINT_DEFAULT_MINIMUM(x) (((x) & LADSPA_HINT_DEFAULT_MASK)   \
-                                           == LADSPA_HINT_DEFAULT_MINIMUM)
-#define LADSPA_IS_HINT_DEFAULT_LOW(x)     (((x) & LADSPA_HINT_DEFAULT_MASK)   \
-                                           == LADSPA_HINT_DEFAULT_LOW)
-#define LADSPA_IS_HINT_DEFAULT_MIDDLE(x)  (((x) & LADSPA_HINT_DEFAULT_MASK)   \
-                                           == LADSPA_HINT_DEFAULT_MIDDLE)
-#define LADSPA_IS_HINT_DEFAULT_HIGH(x)    (((x) & LADSPA_HINT_DEFAULT_MASK)   \
-                                           == LADSPA_HINT_DEFAULT_HIGH)
-#define LADSPA_IS_HINT_DEFAULT_MAXIMUM(x) (((x) & LADSPA_HINT_DEFAULT_MASK)   \
-                                           == LADSPA_HINT_DEFAULT_MAXIMUM)
-#define LADSPA_IS_HINT_DEFAULT_0(x)       (((x) & LADSPA_HINT_DEFAULT_MASK)   \
-                                           == LADSPA_HINT_DEFAULT_0)
-#define LADSPA_IS_HINT_DEFAULT_1(x)       (((x) & LADSPA_HINT_DEFAULT_MASK)   \
-                                           == LADSPA_HINT_DEFAULT_1)
-#define LADSPA_IS_HINT_DEFAULT_100(x)     (((x) & LADSPA_HINT_DEFAULT_MASK)   \
-                                           == LADSPA_HINT_DEFAULT_100)
-#define LADSPA_IS_HINT_DEFAULT_440(x)     (((x) & LADSPA_HINT_DEFAULT_MASK)   \
-                                            == LADSPA_HINT_DEFAULT_440)
 
 typedef struct _LADSPA_PortRangeHint {
 
@@ -594,10 +551,5 @@ typedef const LADSPA_Descriptor *
 
 /**********************************************************************/
 
-#ifdef __cplusplus
-}
-#endif
-
-#endif /* LADSPA_INCLUDED */
 
 /* EOF */
